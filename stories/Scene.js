@@ -1,9 +1,12 @@
 import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 export const canvas = document.createElement("canvas");
 export const scene = new THREE.Scene();
 export const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 export const renderer = new THREE.WebGLRenderer({ antialias: true, canvas: canvas });
+
+new OrbitControls(camera, renderer.domElement);
 
 const animate = () => {
   requestAnimationFrame(animate);

@@ -1,6 +1,5 @@
 import * as THREE from "three";
-import { camera, canvas, renderer, scene } from "../Scene";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { camera, canvas, scene } from "../Scene";
 
 export default {
   title: "Example/Shapes",
@@ -26,8 +25,6 @@ export const Sphere = ({ radius, color }) => {
   const geometry = new THREE.SphereGeometry(radius);
   const mesh = new THREE.Mesh(geometry, material);
   scene.add(mesh);
-
-  new OrbitControls(camera, renderer.domElement);
 
   return canvas;
 };
