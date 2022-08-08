@@ -7,7 +7,7 @@ export default {
   argTypes: {},
 };
 
-export const Cube = ({}) => {
+export const Cube = ({ size, color }) => {
   camera.position.z = 2.75;
 
   const directionalLight = new THREE.DirectionalLight(0x9099aa);
@@ -19,16 +19,20 @@ export const Cube = ({}) => {
   scene.add(hemisphereLight);
 
   const material = new THREE.MeshStandardMaterial({
-    color: 0x00ff00,
+    color,
     metalness: 0.15,
   });
 
-  const geometry = new THREE.BoxGeometry(1, 1, 1);
+  const geometry = new THREE.BoxGeometry(size, size, size);
   const mesh = new THREE.Mesh(geometry, material);
   scene.add(mesh);
 
-  const controls = new OrbitControls(camera, renderer.domElement);
+  new OrbitControls(camera, renderer.domElement);
 
   return canvas;
 };
-Cube.args = {};
+
+Cube.args = { 
+  size: 1,
+  color: '#00ff00',
+};

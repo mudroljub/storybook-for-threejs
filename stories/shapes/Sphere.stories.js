@@ -7,7 +7,7 @@ export default {
   argTypes: {},
 };
 
-export const Sphere = ({}) => {
+export const Sphere = ({ radius, color }) => {
   camera.position.z = 2.75;
 
   const directionalLight = new THREE.DirectionalLight(0x9099aa);
@@ -19,16 +19,20 @@ export const Sphere = ({}) => {
   scene.add(hemisphereLight);
 
   const material = new THREE.MeshStandardMaterial({
-    color: 0x00ff00,
+    color,
     metalness: 0.15,
   });
 
-  const geometry = new THREE.SphereGeometry(1);
+  const geometry = new THREE.SphereGeometry(radius);
   const mesh = new THREE.Mesh(geometry, material);
   scene.add(mesh);
 
-  const controls = new OrbitControls(camera, renderer.domElement);
+  new OrbitControls(camera, renderer.domElement);
 
   return canvas;
 };
-Sphere.args = {};
+
+Sphere.args = { 
+  radius: 1,
+  color: '#00ff00',
+};
