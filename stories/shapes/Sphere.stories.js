@@ -6,7 +6,7 @@ export default {
   argTypes: {},
 };
 
-export const Sphere = ({ radius, color }) => {
+export const Sphere = ({ radius, color, metalness }) => {
   camera.position.z = 2.75;
 
   const directionalLight = new THREE.DirectionalLight(0x9099aa);
@@ -19,7 +19,7 @@ export const Sphere = ({ radius, color }) => {
 
   const material = new THREE.MeshStandardMaterial({
     color,
-    metalness: 0.15,
+    metalness,
   });
 
   const geometry = new THREE.SphereGeometry(radius);
@@ -32,4 +32,5 @@ export const Sphere = ({ radius, color }) => {
 Sphere.args = { 
   radius: 1,
   color: '#ff0000',
+  metalness: 0.15,
 };

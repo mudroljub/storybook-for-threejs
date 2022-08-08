@@ -6,7 +6,7 @@ export default {
   argTypes: {},
 };
 
-export const Cube = ({ size, color }) => {
+export const Cube = ({ size, color, metalness }) => {
   camera.position.z = 2.75;
 
   const directionalLight = new THREE.DirectionalLight(0x9099aa);
@@ -19,7 +19,7 @@ export const Cube = ({ size, color }) => {
 
   const material = new THREE.MeshStandardMaterial({
     color,
-    metalness: 0.15,
+    metalness,
   });
 
   const geometry = new THREE.BoxGeometry(size, size, size);
@@ -32,4 +32,5 @@ export const Cube = ({ size, color }) => {
 Cube.args = { 
   size: 1,
   color: '#00ff00',
+  metalness: 0.15,
 };
