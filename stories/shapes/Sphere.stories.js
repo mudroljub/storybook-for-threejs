@@ -31,5 +31,5 @@ export const Sphere = ({ radius, color }) => {
 
 Sphere.args = { 
   radius: 1,
-  color: '#00ff00',
+  color: '#ff0000',
 };
